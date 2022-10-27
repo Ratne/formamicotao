@@ -9,6 +9,7 @@ import {useForm} from "../shared/utils/forms/useForm";
 import BtnPrimary from "../shared/bootstrap/button/primary/BtnPrimary";
 import BtnDanger from "../shared/bootstrap/button/danger/BtnDanger";
 import BtnSecondary from "../shared/bootstrap/button/secondary/BtnSecondary";
+import {IconSVG} from "../shared/ui/icon/IconSVG";
 
 const Home: NextPage = () => {
     const router = useRouter();
@@ -110,16 +111,16 @@ const Home: NextPage = () => {
                 </div>
             </div>
             <div className="container mt-4">
-                <div className={"row justify-content-center mb-4"}>
+                <div className={"row justify-content-center mb-4 px-3"}>
                     <h1 className={'text-center'}>Attenzione</h1>
                     <p className={'text-center'}>Riempi il modulo qui sotto e procedi a confermare la tua email</p>
-                    <div className={"col-12 col-lg-7 col-md-10 bg-gray p-5 "}>
+                    <div className={"col-12 col-lg-7 col-md-10 bg-gray p-2 p-md-5 "}>
                         <form onSubmit={submitAction}>
                             <FormElements structure={structureForm} errors={errors} isSubmit={isSubmit}
                                           changeValue={changeValue} dataForm={
                                 dataForm
                             }/>
-                            <div className="row align-items-center">
+                            <div className="row align-items-end">
                                 <div className="col">
                                     <FormElements structure={structureFormAdd} errors={errors} isSubmit={isSubmit}
                                                   changeValue={changeValue} dataForm={
@@ -127,12 +128,12 @@ const Home: NextPage = () => {
                                     }/>
                                 </div>
                                 <div className="col-auto">
-                                    <div className={'btn-group gap-2 mt-2'}>
+                                    <div className={'btn-group gap-2 mb-3'}>
                                         <BtnDanger className={''}>
-                                            -
+                                            <IconSVG icon={'trash'} tintColor={'#fff'}/>
                                         </BtnDanger>
                                         <BtnPrimary className={''}>
-                                            +
+                                            <IconSVG icon={'add'} tintColor={'#fff'}/>
                                         </BtnPrimary>
                                     </div>
                                 </div>
