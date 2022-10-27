@@ -1,5 +1,5 @@
 // Typography
-$font-family-sans-serif: 'Lato', sans-serif;
+$font-family-sans-serif: Avenir, Helvetica, Arial, sans-serif;
 $font-size-base: 1rem; //16
 $font-size-sm: $font-size-base * .875;
 $font-size-lg: $font-size-base * 1.25;
@@ -67,7 +67,7 @@ $gradient-gray: linear-gradient(46deg, rgba(237, 242, 245, 0.50) 0%, rgba(231, 2
 $gradient-light: linear-gradient(135deg, #F1F5F7 0%, #DCE6EB 100%);
 $light-blue: #DCE6EB;
 $link-color: $primary;
-$link-hover-color: #26aee6;
+$link-hover-color: rgba(0, 98, 167, 0.82);
 $link-decoration: none;
 
 $border-color: rgba(0, 47, 90, 0.40);

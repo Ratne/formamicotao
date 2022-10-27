@@ -12,7 +12,6 @@ import successInterceptor from "../interceptors/successInterceptor";
 import {setI18n} from "../shared/utils/languages/config/i18n";
 
 
-
 axios.interceptors.response.use(successInterceptor, errorInterceptor);
 axios.interceptors.request.use((config) => {
     incrementN();
@@ -38,7 +37,6 @@ function MyApp({Component, pageProps}: AppProps) {
     const [initLanguage, setInitLanguage] = useState<boolean>(false)
 
 
-
     useEffect(() => {
         setI18n('it', () => setInitLanguage(true));
         store.functions.setListErrors = setListErrors;
@@ -52,10 +50,8 @@ function MyApp({Component, pageProps}: AppProps) {
 
     return <>
         <ToastListError list={listErrors} closeAction={(id) => removeErrorMessage(id as number)}/>
-            <div className={'container'}>
-            <LoaderFullScreen show={!!numberCall || fixedLoad}/>
-            <Component {...pageProps} />
-            </div>
+        <LoaderFullScreen show={!!numberCall || fixedLoad}/>
+        <Component {...pageProps} />
     </>
 }
 

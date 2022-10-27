@@ -1,12 +1,12 @@
 .sh {
   &.btn-primary {
     color: #fff;
-    text-align: center;
-    justify-content: center;
+
 
     &:hover {
       background-color: $link-hover-color;
       color: $light;
+      border: 1px solid $link-hover-color
     }
 
     &:active {

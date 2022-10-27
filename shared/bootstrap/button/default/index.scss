@@ -11,6 +11,8 @@
     align-items: center;
     justify-content: space-between;
     box-shadow: $box-shadow;
+    justify-content: center;
+    height: 67px;
 
     &.btn-default {
       background-color: $default;
