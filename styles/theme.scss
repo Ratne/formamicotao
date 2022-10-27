@@ -1,0 +1,17 @@
+
+@import "./shared/variables";
+@import "~bootstrap/scss/bootstrap";
+
+@import "shared";
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+
+html, body {
+  height: 100%;
+}
+
+
+
+#__next {
+  height: 100%;
+}
