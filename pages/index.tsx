@@ -15,6 +15,7 @@ import {getArrayByNumber} from "../shared/utils/arrayUtils";
 import {copyObject} from "../shared/utils/objUtils";
 import {email, required} from "../shared/utils/forms/utils/validationType";
 import {saveFormData} from "../services/saveForm";
+import {colorTheme} from "../shared/colorUtils";
 
 const Home: NextPage = () => {
     const router = useRouter();
@@ -33,7 +34,12 @@ const Home: NextPage = () => {
                     name: ele.toString(),
                     type: 'textarea',
                     label: 'Farmacia da escludere',
-                    dataElement: {type: 'text', placeholder: 'Testo da inserire'}
+                    dataElement: {type: 'text', placeholder: 'Testo da inserire'},
+                    display: {
+                        form: '',
+                        label: '',
+                        child: '',
+                    },
                 }))
             }
         ]
@@ -162,7 +168,6 @@ const Home: NextPage = () => {
             copyDataFormatted.pharmacies.splice(index, 1)
             setData(copyDataFormatted)
             setIndex(index - 1)
-
         }
     }
 
@@ -188,7 +193,7 @@ const Home: NextPage = () => {
                                           changeValue={changeValue} dataForm={
                                 dataForm
                             }/>
-                            <div className="row align-items-end">
+                            <div className="row align-items-end position-relative">
                                 <div className="col">
                                     <FormElements structure={structureFormAdd} errors={errors} isSubmit={isSubmit}
                                                   changeValue={changeValue} dataForm={
@@ -197,24 +202,26 @@ const Home: NextPage = () => {
                                 </div>
                                 {
                                     index > 0 &&
-                                    <div className="col-auto">
-                                        <div className={'btn-group gap-2 mb-3'}>
-                                            <BtnDanger onClick={removeInput} className={''}>
-                                                <IconSVG icon={'trash'} tintColor={'#fff'}/>
-                                            </BtnDanger>
-                                        </div>
+                                    <div className="col-auto"
+                                         style={{'position': 'absolute', right: 0, bottom: '17px'}}>
+                                        <BtnDanger onClick={removeInput} className={''} variant={'danger-outline'}
+                                                   style={{boxShadow: 'none'}}>
+                                            <IconSVG icon={'trash'} tintColor={'#d84a38'}/>
+                                        </BtnDanger>
                                     </div>
                                 }
                             </div>
-                            <BtnPrimary onClick={addInput} className={'w-100'}>
-                                <IconSVG icon={'add'} tintColor={'#fff'}/>
+                            <BtnPrimary onClick={addInput} className={'w-100'} variant={'primary-outline'}
+                                        disabled={!dataFormatted.pharmacies || !dataFormatted.pharmacies[index]}>
+                                <IconSVG icon={'add'} tintColor={'#0062a7'} className={'me-2'}/> Farmacia da
+                                escludere
                             </BtnPrimary>
 
                             <div className="row mt-5 ">
                                 <div className="col-12">
-                                    <BtnPrimary type={'submit'} disabled={!dataFormatted.pharmacies || !dataFormatted.pharmacies[index]} className={'w-100'}>
-
-
+                                    <BtnPrimary type={'submit'}
+                                                disabled={!dataFormatted.pharmacies || !dataFormatted.pharmacies[index]}
+                                                className={'w-100'}>
                                         Invia il pagamento di {calcValue()} €
                                     </BtnPrimary>
                                 </div>

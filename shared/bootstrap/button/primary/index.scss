@@ -23,7 +23,7 @@
       opacity: 0.3;
     }
 
-    &.-outline {
+    &-outline {
       background-color: transparent;
       color: $primary;
       border-color: $primary;
@@ -32,6 +32,10 @@
         color: $link-hover-color;
         border-color: $link-hover-color;
         background-color: rgba(237, 247, 248, 0.486);
+      }
+
+      &:disabled {
+        opacity: 0.3;
       }
     }
   }
